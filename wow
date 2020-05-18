@@ -4,27 +4,18 @@ local blacklist_token = "https://raw.githubusercontent.com/Patch-Shack/fhblackli
 local whitelist_token = "https://raw.githubusercontent.com/Patch-Shack/fbwhitelistkeyaccess/master/thicc?token=AOOSEMODG6Z4T4LWW5ATKM26YLZAU"
 local verifed_token = "https://raw.githubusercontent.com/Patch-Shack/actualFhAccessVerified/master/finally?token=AOOSEMM7KP662LLRUZR5WIS6YLZMC"
 
+local WhitelistedList ={"UPQTUPGAUPZGUQCUPZIUPQUGGCUJGUGQUPGJUGGQUPAJUQGUGPUGGUGAJUPGUPZPUJIUAFGJIFGZZFGPCFGPQFGPJFGZAFGZAFGPZFGZQFGPTFGQZFGAJFGAAFGAAFGAPFGACFGAQFIIFGGAFII"}
+return WhitelistedList
+
 function verw()
 	loadstring(game:HttpGet(verifed_token,true))();
 end
 
-function CheckBlacklist(ke)
-	local BlacklistedUsers = loadstring(game:HttpGet(blacklist_token,true))();
-	for i = 1,#BlacklistedUsers do
-		if BlacklistedUsers[i] == ke then
-			game.Players.LocalPlayer:Kick("You're blacklisted dumbass")
-		end
+for i = 1,#WhitelistedList do
+	if WhitelistedList[i] == keyN then
+		verw()
+	else
+		game.Players.LocalPlayer:Kick("Blacklisted")
 	end
 end
-
-function CheckWhitelist(ke)
-	local WhitelistedUsers = loadstring(game:HttpGet(whitelist_token,true))();
-	for i = 1,#WhitelistedUsers do
-		if WhitelistedUsers[i] == ke then
-			verw()
-		end
-	end
-end
-CheckBlacklist(keyN)
-CheckWhitelist(keyN)
 if not keyN then error("Where's the key?") end
