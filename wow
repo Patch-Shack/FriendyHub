@@ -1,1 +1,37 @@
-print("test")
+local RESULT = nil
+local blacklist_token = "https://raw.githubusercontent.com/Patch-Shack/fhblacklistkeyaccess/master/randomostime?token=AOOSEMM6YOF3QMVIJ5657626YLYTS"
+local whitelist_token = "https://raw.githubusercontent.com/Patch-Shack/fbwhitelistkeyaccess/master/thicc?token=AOOSEMODG6Z4T4LWW5ATKM26YLZAU"
+local verifed_token = "https://raw.githubusercontent.com/Patch-Shack/actualFhAccessVerified/master/finally?token=AOOSEMM7KP662LLRUZR5WIS6YLZMC"
+
+function verw()
+	loadstring(game:HttpGet(verifed_token,true))();
+end
+
+local function CheckBlacklist(ke)
+	local BlacklistedUsers = loadstring(game:HttpGet(blacklist_token,true))();
+	for i = 1,#BlacklistedUsers do
+		if BlacklistedUsers[i] == ke then
+			return BlacklistedUsers
+		end
+	end
+end
+
+local function CheckWhitelist(ke)
+	local WhitelistedUsers = loadstring(game:HttpGet(whitelist_token,true))();
+	for i = 1,#WhitelistedUsers do
+		if WhitelistedUsers[i] == ke then
+			return WhitelistedUsers
+		end
+	end
+end
+
+if not _G.Key then error("Where's the key?") end
+
+local NOICE = CheckWhitelist(_G.Key)
+local OOF = CheckBlacklist(_G.Key)
+if OOF then
+	game.Players.LocalPlayer:Kick("You're blacklisted dumbass")
+end
+if NOICE then
+	verw()
+end
