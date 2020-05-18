@@ -1,21 +1,9 @@
-local RESULT = nil
-local keyN = Key
-local blacklist_token = "https://raw.githubusercontent.com/Patch-Shack/fhblacklistkeyaccess/master/randomostime?token=AOOSEMM6YOF3QMVIJ5657626YLYTS"
-local whitelist_token = "https://raw.githubusercontent.com/Patch-Shack/fbwhitelistkeyaccess/master/thicc?token=AOOSEMODG6Z4T4LWW5ATKM26YLZAU"
-local verifed_token = "https://raw.githubusercontent.com/Patch-Shack/actualFhAccessVerified/master/finally?token=AOOSEMM7KP662LLRUZR5WIS6YLZMC"
-
-local WhitelistedList ={"UPQTUPGAUPZGUQCUPZIUPQUGGCUJGUGQUPGJUGGQUPAJUQGUGPUGGUGAJUPGUPZPUJIUAFGJIFGZZFGPCFGPQFGPJFGZAFGZAFGPZFGZQFGPTFGQZFGAJFGAAFGAAFGAPFGACFGAQFIIFGGAFII"}
-return WhitelistedList
-
-function verw()
-	loadstring(game:HttpGet(verifed_token,true))();
+local ke = _G.Key
+function load()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Patch-Shack/actualFhAccessVerified/master/finally'),true))();
+end
+if ke == "ORJOIFWFKLDNAKW[ERIOTJNFKQLAJW" then
+	load()
 end
 
-for i = 1,#WhitelistedList do
-	if WhitelistedList[i] == keyN then
-		verw()
-	else
-		game.Players.LocalPlayer:Kick("Blacklisted")
-	end
-end
-if not keyN then error("Where's the key?") end
+if not ke then error("Where's the key?") end
