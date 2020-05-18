@@ -7,31 +7,23 @@ function verw()
 	loadstring(game:HttpGet(verifed_token,true))();
 end
 
-local function CheckBlacklist(ke)
+function CheckBlacklist(ke)
 	local BlacklistedUsers = loadstring(game:HttpGet(blacklist_token,true))();
 	for i = 1,#BlacklistedUsers do
 		if BlacklistedUsers[i] == ke then
-			return BlacklistedUsers
+			game.Players.LocalPlayer:Kick("You're blacklisted dumbass")
 		end
 	end
 end
 
-local function CheckWhitelist(ke)
+function CheckWhitelist(ke)
 	local WhitelistedUsers = loadstring(game:HttpGet(whitelist_token,true))();
 	for i = 1,#WhitelistedUsers do
 		if WhitelistedUsers[i] == ke then
-			return WhitelistedUsers
+			verw()
 		end
 	end
 end
-
+CheckBlacklist(_G.Key)
+CheckWhitelist(_G.Key)
 if not _G.Key then error("Where's the key?") end
-
-local NOICE = CheckWhitelist(_G.Key)
-local OOF = CheckBlacklist(_G.Key)
-if OOF then
-	game.Players.LocalPlayer:Kick("You're blacklisted dumbass")
-end
-if NOICE then
-	verw()
-end
